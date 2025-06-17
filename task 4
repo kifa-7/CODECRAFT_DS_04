@@ -1,0 +1,39 @@
+tweets = [
+    {"entity": "Apple", "sentiment": "positive"},
+    {"entity": "Apple", "sentiment": "positive"},
+    {"entity": "Apple", "sentiment": "neutral"},
+    {"entity": "Apple", "sentiment": "negative"},
+    {"entity": "Apple", "sentiment": "positive"},
+    {"entity": "Samsung", "sentiment": "negative"},
+    {"entity": "Samsung", "sentiment": "positive"},
+    {"entity": "Samsung", "sentiment": "neutral"},
+    {"entity": "Samsung", "sentiment": "neutral"},
+    {"entity": "Google", "sentiment": "positive"},
+    {"entity": "Google", "sentiment": "positive"},
+    {"entity": "Google", "sentiment": "negative"},
+    {"entity": "Google", "sentiment": "negative"},
+    {"entity": "Google", "sentiment": "neutral"},
+]
+
+sentiment_counts = {}
+
+for tweet in tweets:
+    entity = tweet["entity"]
+    sentiment = tweet["sentiment"]
+    
+    if entity not in sentiment_counts:
+        sentiment_counts[entity] = {"positive": 0, "negative": 0, "neutral": 0}
+    
+    sentiment_counts[entity][sentiment] += 1
+
+def draw_bar(label, count):
+    return f"{label.capitalize():<9} {'█' * count} {count}"
+
+print("\nSentiment Analysis Summary:\n")
+
+for entity in sentiment_counts:
+    print(f"Entity: {entity}")
+    print(draw_bar("positive", sentiment_counts[entity]["positive"]))
+    print(draw_bar("negative", sentiment_counts[entity]["negative"]))
+    print(draw_bar("neutral", sentiment_counts[entity]["neutral"]))
+    print("-" * 30)
