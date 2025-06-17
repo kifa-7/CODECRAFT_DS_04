@@ -30,6 +30,7 @@ The project:
 ---
 
 ### 🙋‍♀️ Author
-Kifa Fathima
-Intern @ CodeCraft
+- Kifa Fathima
+- Intern @ CodeCraft
+  
 ---
